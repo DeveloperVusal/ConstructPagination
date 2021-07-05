@@ -48,7 +48,7 @@ $pagination = new ConstructPagination(array(
     * `linkpage` - Нумерция страниц (1,2,3,4...)
     * `current` - Текущая страница
     * `start` - Текст «В начало»
-    * `next` - «Вперед»
+    * `next` - Текст «Вперед»
  
 <br>
 
