@@ -19,7 +19,7 @@ class ConstructPagination {
 
         if (!isset($this->temps['start_text'])) $this->temps['start_text'] = 'В начало';
 
-        if (!isset($this->temps['next_text'])) $this->temps['next_text'] = 'Дальше';
+        if (!isset($this->temps['next_text'])) $this->temps['next_text'] = 'дальше';
 
         $this->temps['classes']['linkpage'] = 'pagination_linkpage';
         $this->temps['classes']['current'] = 'pagination_linkpage_current';
