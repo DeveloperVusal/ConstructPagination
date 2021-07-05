@@ -74,7 +74,7 @@ $pagenation = new ConstructPagination(array(
   
   'temps' => array(
     'start_text' => 'На старт',
-    'next_text' => 'Вперед'
+    'next_text' => 'вперед'
   )
 )); 
 ?>
