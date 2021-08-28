@@ -1,11 +1,12 @@
 # ConstructPagination
 ##### php >= 5.3
 
+<br>
 
 ## Описание
-Создание объекта Пагинации `ConstructPagination`
+### Создание объекта
 ```php
-$pagination = new ConstructPagination(array(
+$pagination = new Pagination(array(
     'count' => 269,
     'current_page' => $_GET['page']
 ));
@@ -18,7 +19,7 @@ $pagination = new ConstructPagination(array(
 
 <br>
 
-### Свойства объекта `ConstructPagination`
+### Свойства объекта `Pagination`
 
 <br>
 
@@ -52,20 +53,16 @@ $pagination = new ConstructPagination(array(
  
 <br>
 
-## Подключение
-Подключите файл `ConstructPagination.php` в ваш проект например в файле `app.php`
-```php
-include 'src/ConstructPagination.php';
-```
+
 
 ### Пример использования
 ```php
 <?php
-header('Content-Type: text/html; charset=utf-8');
+use Vudev\Page\Pagination;
 
-include 'src/ConstructPagination.php';
+include __DIR__.'/vendor/autoload.php';
 
-$pagenation = new ConstructPagination(array(
+$pagination = new Pagination(array(
   'count' => 600,
   'current_page' => $_GET['page_n'],
   'page_count' => 25,
@@ -74,12 +71,18 @@ $pagenation = new ConstructPagination(array(
   
   'temps' => array(
     'start_text' => 'На старт',
-    'next_text' => 'вперед'
+    'next_text' => 'вперед',
+    'classes' => array(
+      'linkpage' => 'pagination_linkpage',
+      'current' => 'pagination_linkpage_current',
+      'start' => 'pagination_start',
+      'next' => 'pagination_next'
+    ),
   )
 )); 
 ?>
 
 <center style="margin-top:15%;">
-  <?php $pagenation->pg_print();?>
+  <?php $pagination->pg_print();?>
 </center>
 ```

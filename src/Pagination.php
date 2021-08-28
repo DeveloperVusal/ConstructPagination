@@ -1,5 +1,7 @@
 <?php
-class ConstructPagination {
+namespace Vudev\Page;
+
+class Pagination {
     protected $current_page;
     protected $count;
     protected $page_count;

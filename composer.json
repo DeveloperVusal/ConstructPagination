@@ -1,0 +1,24 @@
+{
+    "name": "vudev/pagination",
+    "description": "This library provides an opportunity to quickly add pagination of pages to your project.",
+    "version": "1.0.0",
+    "keywords": [
+        "page", "pagination", "plugin", "library", "yandex"
+    ],
+    "readme": "./README.md",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mamedov Vusal",
+            "homepage": "https://vusal.website"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vudev\\Page\\": "src/"
+        }
+    }
+}
