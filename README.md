@@ -3,6 +3,13 @@
 
 <br>
 
+## Установка
+```
+composer require vudev/pagination
+```
+
+<br>
+
 ## Описание
 ### Создание объекта
 ```php
