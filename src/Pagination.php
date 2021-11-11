@@ -1,15 +1,77 @@
 <?php
 namespace Vudev\Page;
 
+/**
+ * Pagination model class
+ * 
+ * @author Mamedov Vusal
+ */
 class Pagination {
+    /*
+     * Current page number
+     *
+     * @access protected
+     * @var integer $current_page = 1
+     */
     protected $current_page;
+
+    /*
+     * Total number of records
+     *
+     * @access protected
+     * @var integer
+     */
     protected $count;
+
+    /*
+     * Number of output records per page
+     *
+     * @access protected
+     * @var integer $page_count = 25
+     */
     protected $page_count;
+
+    /*
+     * Number of numbers displayed on the page
+     *
+     * @access protected
+     * @var integer $views_page = 5
+     */
     protected $views_page;
-    protected $route;
+
+    /*
+     * The alias of the page number passed in the GET request
+     *
+     * @access protected
+     * @var string $query_key = 'page'
+     */
     protected $query_key;
+
+    /*
+     * Array of additional properties
+     *
+     * @access protected
+     * @var array
+     * @link https://github.com/DeveloperVusal/ConstructPagination#свойства-объекта-pagination
+     */
     protected $temps;
 
+    /*
+     * Generating a URL for page navigation
+     *
+     * @access protected
+     * @var string
+     */
+    protected $route;
+
+    /**
+     * The constructor method for creating a pagination object
+     * 
+     * @link https://github.com/DeveloperVusal/ConstructPagination#свойства-объекта-pagination
+     * @access public
+     * @param array $data - Массив с параметрами пагинации
+     * @return void
+     */
     public function __construct($data)
     {
         $this->current_page = ($data['current_page']) ? (int)$data['current_page'] : 1;
@@ -37,11 +99,23 @@ class Pagination {
         }
     }
 
+    /**
+     * Method for getting the number of pages
+     * 
+     * @access protected
+     * @return void
+     */
     protected function num_pages()
     {
         return ceil($this->count / $this->page_count);
     }
 
+    /**
+     * Method of pagination formation
+     * 
+     * @access protected
+     * @return void
+     */
     protected function pg_handler()
     {
         $num_pages = (int)$this->num_pages();
@@ -146,11 +220,23 @@ class Pagination {
         return $html;
     }
 
+    /**
+     * The method of rendering pagination to the screen
+     * 
+     * @access public
+     * @return string
+     */
     public function pg_print()
     {
         echo $this->pg_handler();
     }
 
+    /**
+     * Method of obtaining pagination
+     * 
+     * @access public
+     * @return string
+     */
     public function pg_return()
     {
         return $this->pg_handler();
