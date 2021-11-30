@@ -1,7 +1,7 @@
 {
     "name": "vudev/pagination",
     "description": "This library provides an opportunity to quickly add pagination of pages to your project.",
-    "version": "v1.0.1",
+    "version": "v1.0.2",
     "keywords": [
         "page", "pagination", "plugin", "library", "yandex"
     ],

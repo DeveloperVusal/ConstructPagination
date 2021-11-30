@@ -74,11 +74,11 @@ class Pagination {
      */
     public function __construct($data)
     {
-        $this->current_page = ($data['current_page']) ? (int)$data['current_page'] : 1;
+        $this->current_page = (isset($data['current_page']) && $data['current_page']) ? (int)$data['current_page'] : 1;
         $this->count = (int)$data['count'];
-        $this->page_count = ($data['page_count']) ? (int)$data['page_count'] : 25;
-        $this->views_page = ($data['views_page']) ? (int)$data['views_page'] : 5;
-        $this->query_key = (iconv_strlen($data['query_key'])) ? $data['query_key'] : 'page';
+        $this->page_count = (isset($data['page_count']) && $data['page_count']) ? (int)$data['page_count'] : 25;
+        $this->views_page = (isset($data['views_page']) && $data['views_page']) ? (int)$data['views_page'] : 5;
+        $this->query_key = (isset($data['query_key']) && iconv_strlen($data['query_key'])) ? $data['query_key'] : 'page';
         $this->temps = (isset($data['temps']) && sizeof($data['temps'])) ? $data['temps'] : array();
 
         if (!isset($this->temps['start_text'])) $this->temps['start_text'] = 'В начало';
