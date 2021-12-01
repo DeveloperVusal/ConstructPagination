@@ -85,7 +85,7 @@ $pagination = new Pagination(array(
 )); 
 ?>
 
-<center style="margin-top:15%;">
+<p align="center" style="margin-top:15%;">
   <?php $pagination->pg_print();?>
-</center>
+</з>
 ```
