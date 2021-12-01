@@ -74,11 +74,11 @@ class Pagination {
      */
     public function __construct($data)
     {
-        $this->current_page = (isset($data['current_page']) && $data['current_page']) ? (int)$data['current_page'] : 1;
+        $this->current_page = ($data['current_page']) ? (int)$data['current_page'] : 1;
         $this->count = (int)$data['count'];
         $this->page_count = (isset($data['page_count']) && $data['page_count']) ? (int)$data['page_count'] : 25;
         $this->views_page = (isset($data['views_page']) && $data['views_page']) ? (int)$data['views_page'] : 5;
-        $this->query_key = (isset($data['query_key']) && iconv_strlen($data['query_key'])) ? $data['query_key'] : 'page';
+        $this->query_key = (isset($data['query_key']) && mb_strlen($data['query_key'])) ? $data['query_key'] : 'page';
         $this->temps = (isset($data['temps']) && sizeof($data['temps'])) ? $data['temps'] : array();
 
         if (!isset($this->temps['start_text'])) $this->temps['start_text'] = 'В начало';
@@ -92,7 +92,7 @@ class Pagination {
 
         if (isset($data['temps']['classes']) && sizeof($data['temps']['classes'])) {
             foreach ($data['temps']['classes'] as $key => $val) {
-                if (iconv_strlen($val)) {
+                if (mb_strlen($val)) {
                     if (array_key_exists($key, $this->temps['classes'])) $this->temps['classes'][$key] = $val;
                 }
             }
@@ -127,7 +127,7 @@ class Pagination {
         $request_uri = parse_url($_SERVER['REQUEST_URI']);
         $req_queries = '';
 
-        if (isset($request_uri['query']) && iconv_strlen($request_uri['query'])) {
+        if (isset($request_uri['query']) && mb_strlen($request_uri['query'])) {
             parse_str($request_uri['query'], $output);
 
             if (array_key_exists($this->query_key, $output)) unset($output[$this->query_key]);
@@ -135,7 +135,7 @@ class Pagination {
             $req_queries = http_build_query($output);
         }
 
-        $this->route = (iconv_strlen($req_queries)) ? $request_uri['path'].'?'.$req_queries.'&' : $request_uri['path'].'?';
+        $this->route = (mb_strlen($req_queries)) ? $request_uri['path'].'?'.$req_queries.'&' : $request_uri['path'].'?';
         
         // Проверяем существует ли более чем одной страницы
         if ($num_pages > 1) {            
